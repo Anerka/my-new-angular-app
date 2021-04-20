@@ -1,1 +1,7 @@
-<div>Users list is changed</div>
+<input type="text" (change)="setNewUserName($event.target.value)" />
+<button (click) = "addUser()">Add user</button>
+
+<div *ngFor = "let user of users">
+    {{user.name}} is {{user.age}} years old
+    <span (click) = "removeUser(user.id)">Remove</span>
+</div>
