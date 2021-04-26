@@ -1,7 +1,8 @@
-<input type="text" (change)="setNewUserName($event.target.value)" />
+<input type="text" (change)="setNewUserName($event)" [value] = "newUserName" />
+<!-- <input type="text" (change)="setNewUserName($event.target.value)" /> -->
 <button (click) = "addUser()">Add user</button>
 
-<div *ngFor = "let user of users">
-    {{user.name}} is {{user.age}} years old
-    <span (click) = "removeUser(user.id)">Remove</span>
+<div id = "user-container" *ngFor = "let user of users">
+    <span>{{user.id}} : {{user.name}} is {{user.age}} years old</span>
+    <span (click) = "removeUser.emit(user.id)">Remove</span>
 </div>
